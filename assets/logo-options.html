@@ -26,135 +26,164 @@
       font-weight: 400;
     }
     
-    /* Exact sketch: E normal, D stretched tall, C normal */
-    .edc-sketch {
+    /* Exact proportions:
+       - E width = 100px (reference)
+       - D above = 100px (1× E width)
+       - D below = 200px (2× E width)
+       - E height = 140px
+       - C = E (same size)
+    */
+    
+    .edc-exact {
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
     }
     
-    /* E - normal height, left side */
-    .edc-sketch .e-box {
+    /* E - reference size */
+    .edc-exact .e-box {
+      width: 100px;
+      height: 140px;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 280px;
     }
     
-    .edc-sketch .e-box span {
+    .edc-exact .e-box span {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      line-height: 0.9;
+      line-height: 1;
     }
     
-    /* D - stretched tall, center */
-    .edc-sketch .d-box {
-      font-size: 360px;
+    /* D - positioned with exact proportions */
+    .edc-exact .d-box {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* D above center (cross top) = 100px */
+    .edc-exact .d-box .d-top {
+      font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      line-height: 0.85;
-      margin: 0 -10px;
+      line-height: 0.7;
+      height: 100px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    /* D center (with E and C) */
+    .edc-exact .d-box .d-center {
+      font-size: 140px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1;
+    }
+    
+    /* D below center (cross stem) = 200px */
+    .edc-exact .d-box .d-bottom {
+      font-size: 140px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 0.7;
+      height: 200px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    /* C - same as E */
+    .edc-exact .c-box {
+      width: 100px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .edc-exact .c-box span {
+      font-size: 140px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1;
+    }
+    
+    /* Alternative: Single D stretched */
+    .edc-stretch {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .edc-stretch .e {
+      font-size: 140px;
+      font-weight: 700;
+      color: #1a1a1a;
+      align-self: center;
+    }
+    
+    /* D: total height = 100 + 140 + 200 = 440px equivalent */
+    .edc-stretch .d {
+      font-size: 420px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 0.9;
+      margin: 0 -15px;
+    }
+    
+    .edc-stretch .c {
+      font-size: 140px;
+      font-weight: 700;
+      color: #1a1a1a;
+      align-self: center;
+    }
+    
+    /* With crossbar at exact center */
+    .edc-crossbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .edc-crossbar .e {
+      font-size: 140px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    
+    .edc-crossbar .d {
+      font-size: 420px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 0.9;
+      margin: 0 -15px;
       position: relative;
       z-index: 2;
     }
     
-    /* C - normal height, right side */
-    .edc-sketch .c-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 280px;
-    }
-    
-    .edc-sketch .c-box span {
+    .edc-crossbar .c {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      line-height: 0.9;
     }
     
-    /* Refined version with crossbar emphasis */
-    .edc-refined {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    
-    .edc-refined .e-side {
-      font-size: 140px;
-      font-weight: 700;
-      color: #1a1a1a;
-      line-height: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 300px;
-    }
-    
-    .edc-refined .d-center {
-      font-size: 400px;
-      font-weight: 700;
-      color: #1a1a1a;
-      line-height: 0.82;
-      margin: 0 -15px;
-      position: relative;
-    }
-    
-    .edc-refined .c-side {
-      font-size: 140px;
-      font-weight: 700;
-      color: #1a1a1a;
-      line-height: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 300px;
-    }
-    
-    /* Crossbar accent */
-    .crossbar-line {
+    .edc-crossbar .bar {
       position: absolute;
       left: 50%;
-      top: 38%;
+      top: 35%;
       transform: translate(-50%, -50%);
-      width: 280px;
+      width: 300px;
       height: 20px;
       background: #1a1a1a;
       z-index: 1;
-    }
-    
-    /* Clean version without crossbar */
-    .edc-clean {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .edc-clean .e {
-      font-size: 140px;
-      font-weight: 700;
-      color: #1a1a1a;
-      align-self: center;
-    }
-    
-    .edc-clean .d {
-      font-size: 380px;
-      font-weight: 700;
-      color: #1a1a1a;
-      line-height: 0.85;
-      margin: 0 -10px;
-    }
-    
-    .edc-clean .c {
-      font-size: 140px;
-      font-weight: 700;
-      color: #1a1a1a;
-      align-self: center;
     }
     
     .tagline {
@@ -169,10 +198,10 @@
   </style>
 </head>
 <body>
-  <!-- VERSION 1: Exact sketch match -->
+  <!-- VERSION 1: Exact proportions, single D -->
   <div class="version">
-    <h3>Version 1: Your sketch (E normal, D tall, C normal)</h3>
-    <div class="edc-clean">
+    <h3>Version 1: Exact proportions (D top=1×, bottom=2× E width)</h3>
+    <div class="edc-stretch">
       <span class="e">E</span>
       <span class="d">D</span>
       <span class="c">C</span>
@@ -180,14 +209,14 @@
     <div class="tagline">Every Day Cross</div>
   </div>
 
-  <!-- VERSION 2: With crossbar accent -->
+  <!-- VERSION 2: With crossbar at center line -->
   <div class="version">
     <h3>Version 2: With horizontal crossbar</h3>
-    <div class="edc-refined" style="position: relative;">
-      <span class="crossbar-line"></span>
-      <span class="e-side">E</span>
-      <span class="d-center">D</span>
-      <span class="c-side">C</span>
+    <div class="edc-crossbar">
+      <span class="bar"></span>
+      <span class="e">E</span>
+      <span class="d">D</span>
+      <span class="c">C</span>
     </div>
     <div class="tagline">Every Day Cross</div>
   </div>
