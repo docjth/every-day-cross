@@ -26,39 +26,43 @@
       font-weight: 400;
     }
     
-    /* Container with fixed heights */
-    .edc-container {
+    /* Latin cross proportions:
+       - D above center: 70px (half)
+       - E/C center: 140px
+       - D below center: 140px (full)
+       Total: 350px
+    */
+    .edc-latin {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 420px;
+      height: 350px;
       gap: 20px;
     }
     
-    /* E and C - normal, centered */
-    .edc-container .e,
-    .edc-container .c {
+    .edc-latin .e,
+    .edc-latin .c {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
       line-height: 1;
     }
     
-    /* D - contained, only height stretches */
-    .edc-container .d-box {
-      height: 420px;
+    /* D box: 70px above + 140px center + 140px below = 350px */
+    .edc-latin .d-box {
+      height: 350px;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: visible;
+      position: relative;
     }
     
-    .edc-container .d-box .d {
+    .edc-latin .d-box .d {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
       line-height: 1;
-      transform: scaleY(3);
+      transform: scaleY(2.5);
       transform-origin: center;
     }
     
@@ -67,7 +71,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 420px;
+      height: 350px;
       gap: 20px;
       position: relative;
     }
@@ -81,7 +85,7 @@
     }
     
     .edc-crossbar .d-box {
-      height: 420px;
+      height: 350px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -91,7 +95,7 @@
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      transform: scaleY(3);
+      transform: scaleY(2.5);
       transform-origin: center;
       z-index: 2;
     }
@@ -107,34 +111,34 @@
       z-index: 1;
     }
     
-    /* Taller D version */
-    .edc-tall {
+    /* Tighter version */
+    .edc-tight {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 500px;
-      gap: 20px;
+      height: 350px;
+      gap: 10px;
     }
     
-    .edc-tall .e,
-    .edc-tall .c {
+    .edc-tight .e,
+    .edc-tight .c {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
     }
     
-    .edc-tall .d-box {
-      height: 500px;
+    .edc-tight .d-box {
+      height: 350px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     
-    .edc-tall .d-box .d {
+    .edc-tight .d-box .d {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      transform: scaleY(3.5);
+      transform: scaleY(2.5);
       transform-origin: center;
     }
     
@@ -150,10 +154,10 @@
   </style>
 </head>
 <body>
-  <!-- VERSION 1: Contained, no overlap -->
+  <!-- VERSION 1: Latin cross proportions (1:2 ratio) -->
   <div class="version">
-    <h3>Version 1: D contained, no overlap</h3>
-    <div class="edc-container">
+    <h3>Version 1: Latin cross (top half, bottom full)</h3>
+    <div class="edc-latin">
       <span class="e">E</span>
       <div class="d-box">
         <span class="d">D</span>
@@ -177,10 +181,10 @@
     <div class="tagline">Every Day Cross</div>
   </div>
 
-  <!-- VERSION 3: Taller D -->
+  <!-- VERSION 3: Tighter spacing -->
   <div class="version">
-    <h3>Version 3: Taller D (3.5x)</h3>
-    <div class="edc-tall">
+    <h3>Version 3: Tighter letter spacing</h3>
+    <div class="edc-tight">
       <span class="e">E</span>
       <div class="d-box">
         <span class="d">D</span>
