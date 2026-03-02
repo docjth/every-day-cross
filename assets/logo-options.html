@@ -26,45 +26,41 @@
       font-weight: 400;
     }
     
-    /* All letters same width, D stretched taller */
-    .edc-fixed-width {
+    /* Only height changes, width stays same */
+    .edc-stretch {
       display: flex;
       align-items: center;
       justify-content: center;
     }
     
-    /* E - normal height, fixed width */
-    .edc-fixed-width .e {
+    /* E - normal */
+    .edc-stretch .e {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      width: 140px;
-      text-align: center;
       line-height: 1;
     }
     
-    /* D - same width, stretched taller */
-    .edc-fixed-width .d {
-      font-size: 420px;
-      font-weight: 700;
-      color: #1a1a1a;
-      width: 140px;
-      text-align: center;
-      line-height: 0.9;
-      margin: 0;
-    }
-    
-    /* C - normal height, same width as E and D */
-    .edc-fixed-width .c {
+    /* D - same font size, stretched ONLY vertically with scaleY */
+    .edc-stretch .d {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      width: 140px;
-      text-align: center;
+      line-height: 1;
+      transform: scaleY(3);
+      transform-origin: center;
+      margin: 0 10px;
+    }
+    
+    /* C - normal */
+    .edc-stretch .c {
+      font-size: 140px;
+      font-weight: 700;
+      color: #1a1a1a;
       line-height: 1;
     }
     
-    /* Version with crossbar */
+    /* With crossbar */
     .edc-crossbar {
       display: flex;
       align-items: center;
@@ -76,17 +72,15 @@
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      width: 140px;
-      text-align: center;
     }
     
     .edc-crossbar .d {
-      font-size: 420px;
+      font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      width: 140px;
-      text-align: center;
-      line-height: 0.9;
+      transform: scaleY(3);
+      transform-origin: center;
+      margin: 0 10px;
       position: relative;
       z-index: 2;
     }
@@ -95,52 +89,74 @@
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      width: 140px;
-      text-align: center;
     }
     
     .edc-crossbar .bar {
       position: absolute;
       left: 50%;
-      top: 35%;
+      top: 50%;
       transform: translate(-50%, -50%);
-      width: 440px;
+      width: 320px;
       height: 20px;
       background: #1a1a1a;
       z-index: 1;
     }
     
-    /* With gaps to show separation */
+    /* With gaps */
     .edc-gapped {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 20px;
     }
     
     .edc-gapped .e {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      width: 120px;
-      text-align: center;
     }
     
     .edc-gapped .d {
-      font-size: 420px;
+      font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      width: 120px;
-      text-align: center;
-      line-height: 0.9;
+      transform: scaleY(3);
+      transform-origin: center;
     }
     
     .edc-gapped .c {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      width: 120px;
-      text-align: center;
+    }
+    
+    /* Different scale ratios */
+    .edc-ratio {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .edc-ratio .e {
+      font-size: 140px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    
+    /* scaleY(2.5) for 1:2 ratio (top:bottom) */
+    .edc-ratio .d {
+      font-size: 140px;
+      font-weight: 700;
+      color: #1a1a1a;
+      transform: scaleY(2.5);
+      transform-origin: center;
+    }
+    
+    .edc-ratio .c {
+      font-size: 140px;
+      font-weight: 700;
+      color: #1a1a1a;
     }
     
     .tagline {
@@ -155,10 +171,10 @@
   </style>
 </head>
 <body>
-  <!-- VERSION 1: All same width, D stretched -->
+  <!-- VERSION 1: scaleY(3) - only height stretches -->
   <div class="version">
-    <h3>Version 1: E, D, C same width (140px), D stretched tall</h3>
-    <div class="edc-fixed-width">
+    <h3>Version 1: D height only (scaleY 3x)</h3>
+    <div class="edc-stretch">
       <span class="e">E</span>
       <span class="d">D</span>
       <span class="c">C</span>
@@ -168,7 +184,7 @@
 
   <!-- VERSION 2: With crossbar -->
   <div class="version">
-    <h3>Version 2: Same width + horizontal crossbar</h3>
+    <h3>Version 2: With horizontal crossbar</h3>
     <div class="edc-crossbar">
       <span class="bar"></span>
       <span class="e">E</span>
@@ -178,10 +194,10 @@
     <div class="tagline">Every Day Cross</div>
   </div>
 
-  <!-- VERSION 3: With gaps between letters -->
+  <!-- VERSION 3: 1:2 ratio scale -->
   <div class="version">
-    <h3>Version 3: With gaps between letters</h3>
-    <div class="edc-gapped">
+    <h3>Version 3: Latin cross ratio (scaleY 2.5x)</h3>
+    <div class="edc-ratio">
       <span class="e">E</span>
       <span class="d">D</span>
       <span class="c">C</span>
