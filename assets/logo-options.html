@@ -5,59 +5,61 @@
   <style>
     body {
       margin: 0;
-      padding: 40px;
+      padding: 60px;
       background: #f5f5f5;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 40px;
+      gap: 60px;
     }
     .version {
       background: white;
-      padding: 60px 80px;
+      padding: 80px 100px;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
     h3 {
       text-align: center;
       color: #666;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       font-weight: 400;
     }
     
-    /* Only height changes, width stays same */
-    .edc-stretch {
+    /* Container with fixed heights */
+    .edc-container {
       display: flex;
       align-items: center;
       justify-content: center;
+      height: 420px;
+      gap: 20px;
     }
     
-    /* E - normal */
-    .edc-stretch .e {
+    /* E and C - normal, centered */
+    .edc-container .e,
+    .edc-container .c {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
       line-height: 1;
     }
     
-    /* D - same font size, stretched ONLY vertically with scaleY */
-    .edc-stretch .d {
+    /* D - contained, only height stretches */
+    .edc-container .d-box {
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+    
+    .edc-container .d-box .d {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
       line-height: 1;
       transform: scaleY(3);
       transform-origin: center;
-      margin: 0 10px;
-    }
-    
-    /* C - normal */
-    .edc-stretch .c {
-      font-size: 140px;
-      font-weight: 700;
-      color: #1a1a1a;
-      line-height: 1;
     }
     
     /* With crossbar */
@@ -65,30 +67,33 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      height: 420px;
+      gap: 20px;
       position: relative;
     }
     
-    .edc-crossbar .e {
+    .edc-crossbar .e,
+    .edc-crossbar .c {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
+      z-index: 2;
     }
     
-    .edc-crossbar .d {
+    .edc-crossbar .d-box {
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .edc-crossbar .d-box .d {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
       transform: scaleY(3);
       transform-origin: center;
-      margin: 0 10px;
-      position: relative;
       z-index: 2;
-    }
-    
-    .edc-crossbar .c {
-      font-size: 140px;
-      font-weight: 700;
-      color: #1a1a1a;
     }
     
     .edc-crossbar .bar {
@@ -96,67 +101,41 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 320px;
+      width: 350px;
       height: 20px;
       background: #1a1a1a;
       z-index: 1;
     }
     
-    /* With gaps */
-    .edc-gapped {
+    /* Taller D version */
+    .edc-tall {
       display: flex;
       align-items: center;
       justify-content: center;
+      height: 500px;
       gap: 20px;
     }
     
-    .edc-gapped .e {
+    .edc-tall .e,
+    .edc-tall .c {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
     }
     
-    .edc-gapped .d {
-      font-size: 140px;
-      font-weight: 700;
-      color: #1a1a1a;
-      transform: scaleY(3);
-      transform-origin: center;
-    }
-    
-    .edc-gapped .c {
-      font-size: 140px;
-      font-weight: 700;
-      color: #1a1a1a;
-    }
-    
-    /* Different scale ratios */
-    .edc-ratio {
+    .edc-tall .d-box {
+      height: 500px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
     }
     
-    .edc-ratio .e {
+    .edc-tall .d-box .d {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-    }
-    
-    /* scaleY(2.5) for 1:2 ratio (top:bottom) */
-    .edc-ratio .d {
-      font-size: 140px;
-      font-weight: 700;
-      color: #1a1a1a;
-      transform: scaleY(2.5);
+      transform: scaleY(3.5);
       transform-origin: center;
-    }
-    
-    .edc-ratio .c {
-      font-size: 140px;
-      font-weight: 700;
-      color: #1a1a1a;
     }
     
     .tagline {
@@ -171,12 +150,14 @@
   </style>
 </head>
 <body>
-  <!-- VERSION 1: scaleY(3) - only height stretches -->
+  <!-- VERSION 1: Contained, no overlap -->
   <div class="version">
-    <h3>Version 1: D height only (scaleY 3x)</h3>
-    <div class="edc-stretch">
+    <h3>Version 1: D contained, no overlap</h3>
+    <div class="edc-container">
       <span class="e">E</span>
-      <span class="d">D</span>
+      <div class="d-box">
+        <span class="d">D</span>
+      </div>
       <span class="c">C</span>
     </div>
     <div class="tagline">Every Day Cross</div>
@@ -188,18 +169,22 @@
     <div class="edc-crossbar">
       <span class="bar"></span>
       <span class="e">E</span>
-      <span class="d">D</span>
+      <div class="d-box">
+        <span class="d">D</span>
+      </div>
       <span class="c">C</span>
     </div>
     <div class="tagline">Every Day Cross</div>
   </div>
 
-  <!-- VERSION 3: 1:2 ratio scale -->
+  <!-- VERSION 3: Taller D -->
   <div class="version">
-    <h3>Version 3: Latin cross ratio (scaleY 2.5x)</h3>
-    <div class="edc-ratio">
+    <h3>Version 3: Taller D (3.5x)</h3>
+    <div class="edc-tall">
       <span class="e">E</span>
-      <span class="d">D</span>
+      <div class="d-box">
+        <span class="d">D</span>
+      </div>
       <span class="c">C</span>
     </div>
     <div class="tagline">Every Day Cross</div>
