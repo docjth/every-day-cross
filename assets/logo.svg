@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <!-- White background -->
+  <rect width="800" height="400" fill="#ffffff"/>
+  
+  <!-- EDC Text -->
+  <text x="180" y="210" font-family="Helvetica, Arial, sans-serif" font-size="180" font-weight="bold" fill="#1a1a1a" text-anchor="middle">E</text>
+  <text x="340" y="210" font-family="Helvetica, Arial, sans-serif" font-size="180" font-weight="bold" fill="#1a1a1a" text-anchor="middle">D</text>
+  <text x="500" y="210" font-family="Helvetica, Arial, sans-serif" font-size="180" font-weight="bold" fill="#1a1a1a" text-anchor="middle">C</text>
+  
+  <!-- Chain loop from C -->
+  <circle cx="500" cy="290" r="12" fill="none" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Connector -->
+  <line x1="500" y1="302" x2="500" y2="315" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Cross vertical -->
+  <line x1="500" y1="315" x2="500" y2="380" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Cross horizontal -->
+  <line x1="475" y1="350" x2="525" y2="350" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Tagline -->
+  <text x="400" y="360" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="300" fill="#666666" text-anchor="middle">EVERY DAY CROSS</text>
+</svg>
