@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      background: #f5f5f5;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    .version {
+      background: white;
+      padding: 60px 80px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    h3 {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+    
+    /* VERSION 1: C becomes the cross */
+    .v1 {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      font-size: 140px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1;
+    }
+    .v1 .e { margin-right: 8px; }
+    .v1 .d { margin-right: 8px; }
+    .v1 .c-cross {
+      position: relative;
+      display: inline-block;
+    }
+    .v1 .c-top {
+      display: block;
+      font-size: 140px;
+      line-height: 0.7;
+    }
+    .v1 .c-stem {
+      width: 18px;
+      height: 70px;
+      background: #1a1a1a;
+      margin: 0 auto;
+      border-radius: 0 0 3px 3px;
+    }
+    .v1 .c-crossbar {
+      width: 50px;
+      height: 14px;
+      background: #1a1a1a;
+      margin: 0 auto;
+      margin-top: -45px;
+      border-radius: 3px;
+    }
+    
+    /* VERSION 3: E and C frame the cross */
+    .v3 {
+      position: relative;
+      display: inline-block;
+    }
+    .v3 .letters {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 140px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1;
+      gap: 20px;
+    }
+    .v3 .cross-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .v3 .cross-v {
+      width: 14px;
+      height: 180px;
+      background: #1a1a1a;
+      margin: 0 auto;
+      border-radius: 3px;
+    }
+    .v3 .cross-h {
+      width: 280px;
+      height: 14px;
+      background: #1a1a1a;
+      margin: 0 auto;
+      margin-top: -97px;
+      border-radius: 3px;
+    }
+    /* Cutouts in letters to show cross */
+    .v3 .e, .v3 .d, .v3 .c {
+      position: relative;
+      z-index: 2;
+      background: white;
+      padding: 0 10px;
+    }
+    
+    .tagline {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 18px;
+      font-weight: 300;
+      color: #666;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <!-- VERSION 1: C becomes the cross -->
+  <div class="version">
+    <h3>Version 1: The C becomes the cross</h3>
+    <div class="v1">
+      <span class="e">E</span>
+      <span class="d">D</span>
+      <span class="c-cross">
+        <span class="c-top">C</span>
+        <div class="c-stem"></div>
+        <div class="c-crossbar"></div>
+      </span>
+    </div>
+    <div class="tagline">Every Day Cross</div>
+  </div>
+
+  <!-- VERSION 3: E and C frame the cross -->
+  <div class="version">
+    <h3>Version 3: Letters frame the cross</h3>
+    <div class="v3">
+      <div class="cross-overlay">
+        <div class="cross-v"></div>
+        <div class="cross-h"></div>
+      </div>
+      <div class="letters">
+        <span class="e">E</span>
+        <span class="d">D</span>
+        <span class="c">C</span>
+      </div>
+    </div>
+    <div class="tagline">Every Day Cross</div>
+  </div>
+</body>
+</html>
