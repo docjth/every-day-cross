@@ -26,129 +26,122 @@
       font-weight: 400;
     }
     
-    /* VERSION 1: C becomes the cross - C extends down */
-    .v1-container {
+    /* EDC as cross shape */
+    .edc-cross {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1;
+    }
+    
+    /* E - tall vertical left arm */
+    .edc-cross .e {
+      font-size: 280px;
+      line-height: 0.85;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    /* D - center, normal size */
+    .edc-cross .d {
+      font-size: 140px;
+      margin: 0 10px;
+      display: flex;
+      align-items: center;
+    }
+    
+    /* C - tall vertical right arm */
+    .edc-cross .c {
+      font-size: 280px;
+      line-height: 0.85;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    /* Horizontal bar connecting E-D-C */
+    .edc-cross .crossbar {
+      position: relative;
+    }
+    .edc-cross .crossbar::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 20px;
+      background: #1a1a1a;
+      z-index: -1;
+    }
+    
+    /* Alternative: E and C as vertical, D with crossbar through it */
+    .edc-alt {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .edc-alt .e-stretch {
+      font-size: 320px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 0.9;
+      margin-right: 20px;
+    }
+    .edc-alt .c-stretch {
+      font-size: 320px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 0.9;
+      margin-left: 20px;
+    }
+    .edc-alt .d-center {
+      font-size: 160px;
+      font-weight: 700;
+      color: #1a1a1a;
+      position: relative;
+    }
+    .edc-alt .cross-h {
+      position: absolute;
+      left: -60px;
+      right: -60px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 24px;
+      background: #1a1a1a;
+      z-index: -1;
+    }
+    
+    /* Clean version: stacked E/D/C forming cross silhouette */
+    .cross-silhouette {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    .v1 {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
+    .cross-silhouette .top {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
       line-height: 0.8;
     }
-    .v1 .e { margin-right: 8px; }
-    .v1 .d { margin-right: 8px; }
-    .v1 .c-cross {
-      position: relative;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .v1 .c-letter {
-      font-size: 140px;
-      line-height: 0.9;
-    }
-    .v1 .c-stem {
-      width: 20px;
-      height: 80px;
-      background: #1a1a1a;
-      border-radius: 0 0 4px 4px;
-      margin-top: -10px;
-    }
-    .v1 .c-crossbar {
-      width: 60px;
-      height: 16px;
-      background: #1a1a1a;
-      border-radius: 4px;
-      margin-top: -50px;
-    }
-    
-    /* VERSION 3: Cross integrated through letters */
-    .v3-container {
-      position: relative;
-      display: inline-block;
-    }
-    .v3 {
+    .cross-silhouette .middle {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 40px;
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      line-height: 1;
-      position: relative;
+      line-height: 0.8;
     }
-    .v3 .letter {
-      position: relative;
-      z-index: 2;
-      padding: 0 5px;
-    }
-    .v3 .cross-behind {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .v3 .cross-v {
-      width: 16px;
-      height: 200px;
-      background: #c4a77d;
-    }
-    .v3 .cross-h {
-      width: 320px;
-      height: 16px;
-      background: #c4a77d;
-      margin-top: -108px;
-    }
-    
-    /* VERSION 2: D becomes the cross center */
-    .v2 {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .cross-silhouette .bottom {
       font-size: 140px;
       font-weight: 700;
       color: #1a1a1a;
-      line-height: 1;
-      gap: 8px;
-    }
-    .v2 .d-cross {
-      position: relative;
-      display: inline-block;
-    }
-    .v2 .d-letter {
-      font-size: 140px;
-      position: relative;
-      z-index: 2;
-    }
-    .v2 .cross-through {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-    }
-    .v2 .cross-v {
-      width: 14px;
-      height: 180px;
-      background: #1a1a1a;
-      margin: 0 auto;
-    }
-    .v2 .cross-h {
-      width: 100px;
-      height: 14px;
-      background: #1a1a1a;
-      margin: 0 auto;
-      margin-top: -97px;
+      line-height: 0.8;
     }
     
     .tagline {
@@ -163,53 +156,27 @@
   </style>
 </head>
 <body>
-  <!-- VERSION 1: C extends down to become cross -->
+  <!-- VERSION 1: E and C stretched tall, D center -->
   <div class="version">
-    <h3>Version 1: C becomes the cross stem</h3>
-    <div class="v1-container">
-      <div class="v1">
-        <span class="e">E</span>
-        <span class="d">D</span>
-        <span class="c-cross">
-          <span class="c-letter">C</span>
-          <div class="c-stem"></div>
-          <div class="c-crossbar"></div>
-        </span>
-      </div>
+    <h3>Version 1: E & C tall (vertical arms), D center</h3>
+    <div class="edc-cross">
+      <span class="e">E</span>
+      <span class="d">D</span>
+      <span class="c">C</span>
     </div>
     <div class="tagline">Every Day Cross</div>
   </div>
 
-  <!-- VERSION 2: D is the cross center -->
+  <!-- VERSION 2: E and C as vertical pillars, D with crossbar -->
   <div class="version">
-    <h3>Version 2: Cross through the D</h3>
-    <div class="v2">
-      <span>E</span>
-      <span class="d-cross">
-        <span class="d-letter">D</span>
-        <div class="cross-through">
-          <div class="cross-v"></div>
-          <div class="cross-h"></div>
-        </div>
+    <h3>Version 2: E & C as pillars, crossbar through D</h3>
+    <div class="edc-alt">
+      <span class="e-stretch">E</span>
+      <span class="d-center">
+        D
+        <span class="cross-h"></span>
       </span>
-      <span>C</span>
-    </div>
-    <div class="tagline">Every Day Cross</div>
-  </div>
-
-  <!-- VERSION 3: Gold cross behind all letters -->
-  <div class="version">
-    <h3>Version 3: Cross behind E-D-C (gold accent)</h3>
-    <div class="v3-container">
-      <div class="v3">
-        <div class="cross-behind">
-          <div class="cross-v"></div>
-          <div class="cross-h"></div>
-        </div>
-        <span class="letter">E</span>
-        <span class="letter">D</span>
-        <span class="letter">C</span>
-      </div>
+      <span class="c-stretch">C</span>
     </div>
     <div class="tagline">Every Day Cross</div>
   </div>
